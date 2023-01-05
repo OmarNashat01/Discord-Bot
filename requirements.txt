@@ -1,7 +1,7 @@
 gtts==2.3.0
 kalam==0.1.0
 matplotlib==3.5.3
-nextcord==2.3.2
+nextcord
 Pillow==9.4.0
 python-dotenv==0.21.0
 pyttsx3==2.90
