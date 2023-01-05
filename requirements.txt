@@ -1,5 +1,4 @@
 gtts==2.3.0
-kalam==0.1.0
 matplotlib==3.5.3
 nextcord
 Pillow==9.4.0
