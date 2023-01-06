@@ -4,6 +4,7 @@ from nextcord.ext import commands
 import os
 import json
 from nextcord import File, ButtonStyle, Embed, Color, SelectOption, Intents, Interaction, SlashOption, Member
+from flask import Flask
 
 app = Flask(__name__)
 @app.route('/')
