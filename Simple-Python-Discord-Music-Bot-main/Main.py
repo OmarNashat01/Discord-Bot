@@ -4,7 +4,23 @@ from nextcord.ext import commands
 import os
 import json
 from nextcord import File, ButtonStyle, Embed, Color, SelectOption, Intents, Interaction, SlashOption, Member
+from flask import Flask
 
+
+from flask import Flask
+from threading import Thread
+
+app = Flask('')
+@app.route('/')
+def main(): 
+    return "Your Bot Is Ready"
+
+def run(): 
+    app.run(host="0.0.0.0", port=8000)
+
+def keep_alive(): 
+    server = Thread(target=run)
+    server.start()
 
 with open('settings.json', mode='r', encoding='utf8') as jfile:
     jdata = json.load(jfile)
