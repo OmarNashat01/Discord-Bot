@@ -5,6 +5,13 @@ import os
 import json
 from nextcord import File, ButtonStyle, Embed, Color, SelectOption, Intents, Interaction, SlashOption, Member
 
+from flask import Flask
+ 
+app = Flask(__name__)
+@app.route('/')
+def hello_world():
+    return 'Hello World'
+
 with open('settings.json', mode='r', encoding='utf8') as jfile:
     jdata = json.load(jfile)
 
@@ -37,4 +44,9 @@ for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
         client.load_extension(f'cogs.{filename[:-3]}')
 
-client.run(jdata['TOKEN']) #Go to settings.json set your Discord bot token
+
+val = os.fork()
+if val == 0:
+    app.run()
+else:
+    client.run(jdata['TOKEN']) #Go to settings.json set your Discord bot token

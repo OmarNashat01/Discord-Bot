@@ -131,6 +131,24 @@ async def jimmy(ctx):
         await ctx.send('You need to be in a vc to run this command!')
 
 
+@bot.command(name="jimmy2")
+# @commands.has_permissions(ban_members=True)
+async def jimmy2(ctx):
+
+    user = ctx.message.author
+    if user.voice != None:
+        try:
+            vc = await user.voice.channel.connect()
+        except:
+            vc = ctx.voice_client
+        if vc.is_playing():
+            vc.stop()
+        source = await nextcord.FFmpegOpusAudio.from_probe("jimmy2.mp4", method='fallback')
+        vc.play(source)
+
+    else:
+        await ctx.send('You need to be in a vc to run this command!')
+
 
 @bot.command(name="dola3")
 # @commands.has_permissions(ban_members=True)
@@ -150,6 +168,25 @@ async def dola3(ctx):
     else:
         await ctx.send('You need to be in a vc to run this command!')
 
+
+
+@bot.command(name="figo")
+# @commands.has_permissions(ban_members=True)
+async def figo(ctx):
+
+    user = ctx.message.author
+    if user.voice != None:
+        try:
+            vc = await user.voice.channel.connect()
+        except:
+            vc = ctx.voice_client
+        if vc.is_playing():
+            vc.stop()
+        source = await nextcord.FFmpegOpusAudio.from_probe("figo.ogg", method='fallback')
+        vc.play(source)
+
+    else:
+        await ctx.send('You need to be in a vc to run this command!')
 
 
 @bot.command(name="seyah")
